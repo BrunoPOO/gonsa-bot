@@ -4,6 +4,9 @@ ENV LIBRARY_PATH=/lib:/usr/lib
 RUN mkdir /code/
 WORKDIR /code
 ADD requirements.txt /code/
-RUN apk add --no-cache build-base jpeg-dev zlib-dev && pip install -r requirements.txt && apk del build-base
+
+RUN apk add --no-cache build-base jpeg-dev zlib-dev \
+    && pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org -r requirements.txt \
+    && apk del build-base
 ADD . /code/
 CMD ["python", "-u", "run.py"]

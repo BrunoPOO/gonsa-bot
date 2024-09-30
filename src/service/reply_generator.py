@@ -55,10 +55,10 @@ class ReplyGenerator:
         longest_message = max(messages, key=len) if len(messages) else None
         print(f"> Reply: longest_message {longest_message}")
 
-        if longest_message and strings_has_equal_letters(
-            longest_message, "".join(words)
-        ):
-            return None
+        # if longest_message and strings_has_equal_letters(
+        #     longest_message, "".join(words)
+        # ):
+        #     return None
 
         return longest_message
 
